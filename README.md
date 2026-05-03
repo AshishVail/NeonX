@@ -8,7 +8,7 @@ A real-time AI operations dashboard built with a **glassmorphism + neon UI** aes
 |---|---|
 | **Theme** | Dark base (`#050510`), frosted-glass panels (`backdrop-filter: blur`), neon glow borders and shadows |
 | **KPI Cards** | Live-updating accuracy, training speed, data volume, and active-model counts with colour-coded sparklines |
-| **Performance Chart** | Chart.js line chart (24 h / 7 d / 30 d views) showing model accuracy, loss, and throughput |
+| **Performance Chart** | Custom Canvas line chart (24 h / 7 d / 30 d views) showing model accuracy, loss index, and throughput — normalised 0-100% Y-axis with animated draw-in |
 | **Model Distribution** | Doughnut chart breaking down model types (Transformer, CNN, GAN, Diffusion, RL) |
 | **Live Activity Feed** | Auto-scrolling event log that prepends new entries every few seconds |
 | **System Monitor** | Animated GPU VRAM, CPU, RAM, temperature, and network I/O progress bars with live drift |
@@ -21,10 +21,10 @@ A real-time AI operations dashboard built with a **glassmorphism + neon UI** aes
 No build step required — open `index.html` directly in any modern browser:
 
 ```bash
-# Option 1 – open file directly
+# Option 1 – open the file directly in any modern browser
 open index.html
 
-# Option 2 – serve with a simple HTTP server (avoids CDN CORS issues on some setups)
+# Option 2 – serve with a simple HTTP server
 npx serve .
 # or
 python3 -m http.server 8080
@@ -32,10 +32,9 @@ python3 -m http.server 8080
 
 ## Tech Stack
 
-- Plain HTML5 / CSS3 / ES2020 JavaScript (zero build tooling)
-- [Chart.js 4](https://www.chartjs.org/) via CDN for interactive charts
-- [Font Awesome 6](https://fontawesome.com/) via CDN for icons
-- Canvas API for the animated particle background
+- Plain HTML5 / CSS3 / ES2020 JavaScript (**zero build tooling, zero external dependencies**)
+- Canvas 2D API — custom line chart renderer, doughnut chart renderer, animated particle background
+- Inline SVG icons — no icon font CDN required
 
 ## Design Tokens
 
